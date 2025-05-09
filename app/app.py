@@ -12,7 +12,7 @@ st.set_page_config(page_title="CrewNPS Dashboard", layout="wide")
 # Load data
 @st.cache_data
 def load_data():
-    df = pd.read_csv("../dummy_crew_nps_data.csv", parse_dates=["nps_valid_from", "sentiment_valid_from"])
+    df = pd.read_csv("../data/dummy_crew_nps_data.csv", parse_dates=["nps_valid_from", "sentiment_valid_from"])
     df['engage_sentiment'] = df['engage_sentiment'].str.lower().str.strip()
     return df
 
