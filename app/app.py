@@ -5,6 +5,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.inspection import PartialDependenceDisplay
 from sklearn.preprocessing import LabelEncoder
 import matplotlib.pyplot as plt
+from generate_dummy_data import generate_dummy_data
 
 # Page config
 st.set_page_config(page_title="CrewNPS Dashboard", layout="wide")
@@ -12,7 +13,7 @@ st.set_page_config(page_title="CrewNPS Dashboard", layout="wide")
 # Load data
 @st.cache_data
 def load_data():
-    _df = pd.read_csv("data/dummy_crew_nps_data.csv", parse_dates=["nps_valid_from", "sentiment_valid_from"])
+    _df = generate_dummy_data()
     _df['engage_sentiment'] = _df['engage_sentiment'].str.lower().str.strip()
     return _df
 
